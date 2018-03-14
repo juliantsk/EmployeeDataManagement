@@ -11,8 +11,8 @@ firebase.initializeApp(config);
 //  START CODING BELOW!!
 var name = "";
 var email = "";
-var age = 0;
-var comment = "";
+var start = 0;
+var rate = "";
 
 // Create a variable to reference the database
 var database = firebase.database();
@@ -20,9 +20,9 @@ var database = firebase.database();
 // Capture Button Click
 $("#add-user").on("click", function() {
     name = $("#name-input").val().trim();
-    email = $("#email-input").val().trim();
-    age = $("#age-input").val().trim();
-    comment = $("#comment-input").val().trim();
+    email = $("#role-input").val().trim();
+    start = $("#start-input").val().trim();
+    rate = $("#rate-input").val().trim();
     // Don't refresh the page!
     event.preventDefault();
 
@@ -31,8 +31,8 @@ $("#add-user").on("click", function() {
     database.ref().push({
         name: name,
         email: email,
-        age: age,
-        comment: comment
+        start: start,
+        rate: rate
     });
 
 
@@ -40,25 +40,27 @@ $("#add-user").on("click", function() {
 
 });
 
+dataRef.ref()
+    .orderByChild("dateAdded")
+    .limitToLast(3)
+    .on("child_added", function(snapshot) {
 
-// Firebase watcher + initial loader HINT: .on("value")
-database.ref().on("value", function(snapshot) {
-
-    console.log(snapshot.val());
-    // console.log(snapshot.val().name);
-    console.log(snapshot.val().email);
-    console.log(snapshot.val().age);
-    console.log(snapshot.val().comment);
-
-
-    $("name-display").text(snapshot.val().name);
-    $("email-display").text(snapshot.val().email);
-    $("age-display").text(snapshot.val().age);
-    $("comment-display").text(snapshot.val().comment);
+        for (var i = 0; snapshot[i]; i++) {
+            console.log(snapshot.val());
+            // console.log(snapshot.val().name);
+            console.log(snapshot.val().email);
+            console.log(snapshot.val().start);
+            console.log(snapshot.val().rate);
 
 
+            $("#name-display").text(snapshot.val().name);
+            $("#role-display").text(snapshot.val().email);
+            $("#start-display").text(snapshot.val().start);
+            $("#rate-display").text(snapshot.val().rate);
 
-    // Create Error Handling
-}, function(errorObject) {
-    console.log(errorObject.code);
-});
+
+        }
+        // Create Error Handling
+    }, function(errorObject) {
+        console.log(errorObject.code);
+    });
