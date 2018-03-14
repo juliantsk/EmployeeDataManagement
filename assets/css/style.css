@@ -17,3 +17,13 @@ h1 {
  background-color: darkblue !important;
  color: white !important;
 }
+
+table {
+    border: 1px solid gray;
+    border-radius: 2px; 
+}
+
+.table-title {
+    background-color: darkblue !important;
+    color: white !important;
+}
