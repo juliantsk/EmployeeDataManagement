@@ -17,6 +17,12 @@ var comment = "";
 // Create a variable to reference the database
 var database = firebase.database();
 
+database.ref().set({
+    name: name,
+    email: email,
+    age: age,
+    comment: comment
+});
 
 // Capture Button Click
 $("#add-user").on("click", function() {
@@ -46,7 +52,7 @@ $("#add-user").on("click", function() {
 database.ref().on("value", function(snapshot) {
 
     console.log(snapshot.val());
-    console.log(snapshot.val().name);
+    // console.log(snapshot.val().name);
     console.log(snapshot.val().email);
     console.log(snapshot.val().age);
     console.log(snapshot.val().comment);
