@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Sign-Up Today!</title>
+    <title>Employee Database Management</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -32,8 +32,10 @@
             <table class="table">Current Employees
                 <thead>
                   <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
+                    <th>Employee Name</th>
+                    <th>Role</th>
+                    <th>Start Date</th>
+                    <th>Email</th>
                     <th>Email</th>
                   </tr>   
             </table>
@@ -56,15 +58,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="email-input">Role:</label>
-                                <input class="form-control" id="email-input" type="text">
+                                <input class="form-control" id="role-input" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="age-input">Start Date:</label>
-                                <input class="form-control" id="age-input" type="date">
+                                <input class="form-control" id="start-input" type="date">
                             </div>
                             <div class="form-group">
                                 <label for="comment-input">Monthly Rate</label>
-                                <textarea class="form-control" id="comment-input" rows="5"></textarea>
+                                <textarea class="form-control" id="rate-input" rows="5"></textarea>
                             </div>
                             <button class="btn btn-default" id="add-user" type="submit">Submit</button>
                         </form>

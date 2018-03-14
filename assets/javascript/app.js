@@ -17,7 +17,6 @@ var comment = "";
 // Create a variable to reference the database
 var database = firebase.database();
 
-
 // Capture Button Click
 $("#add-user").on("click", function() {
     name = $("#name-input").val().trim();
@@ -29,7 +28,7 @@ $("#add-user").on("click", function() {
 
     // YOUR TASK!!!
     // Code in the logic for storing and retrieving the most recent user.
-    database.ref().set({
+    database.ref().push({
         name: name,
         email: email,
         age: age,
@@ -46,7 +45,7 @@ $("#add-user").on("click", function() {
 database.ref().on("value", function(snapshot) {
 
     console.log(snapshot.val());
-    console.log(snapshot.val().name);
+    // console.log(snapshot.val().name);
     console.log(snapshot.val().email);
     console.log(snapshot.val().age);
     console.log(snapshot.val().comment);
