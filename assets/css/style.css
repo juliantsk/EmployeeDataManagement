@@ -18,6 +18,7 @@ h1 {
  color: white !important;
 }
 
+<<<<<<< HEAD
 #little-head{
     background-color: darkblue !important;
     color :white;
@@ -34,4 +35,14 @@ h1 {
 
 #first-row{
     border: 3px solid darkblue !important;
+=======
+table {
+    border: 1px solid gray;
+    border-radius: 2px; 
+}
+
+.table-title {
+    background-color: darkblue !important;
+    color: white !important;
+>>>>>>> 3e2e431a8e737a6ed886a080d33c19ead1c6385f
 }
