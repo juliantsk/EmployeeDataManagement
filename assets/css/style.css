@@ -6,6 +6,7 @@ h1 {
 #masthead {
     background-color: black !important;
     font-size: 50px;
+    text-align: center; 
 }
  
 #ptag {
@@ -40,7 +41,7 @@ table {
     border-radius: 2px; 
 }
 
-.little-head{
+#little-head{
     background-color: darkblue !important;
     color: white !important;
 }
