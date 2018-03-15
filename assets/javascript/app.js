@@ -17,50 +17,50 @@ var rate = "";
 // Create a variable to reference the database
 var database = firebase.database();
 
-// Capture Button Click
-$("#add-user").on("click", function() {
-    name = $("#name-input").val().trim();
-    email = $("#role-input").val().trim();
-    start = $("#start-input").val().trim();
-    rate = $("#rate-input").val().trim();
-    // Don't refresh the page!
-    event.preventDefault();
+$(document).ready(function() {
+    // Capture Button Click
+    $("#add-user").on("click", function() {
+        // Don't refresh the page!
+        event.preventDefault();
 
-    // YOUR TASK!!!
-    // Code in the logic for storing and retrieving the most recent user.
-    database.ref().push({
-        name: name,
-        email: email,
-        start: start,
-        rate: rate
+        name = $("#name-input").val().trim();
+        email = $("#role-input").val().trim();
+        start = $("#start-input").val().trim();
+        rate = $("#rate-input").val().trim();
+
+        console.log("success");
+
+        database.ref().push({
+            name: name,
+            email: email,
+            start: start,
+            rate: rate
+        });
+
     });
 
+    database.ref()
+        .orderByChild("dateAdded")
+        .limitToLast(3)
+        .on("child_added", function(snapshot) {
 
-    // Don't forget to provide initial data to your Firebase database.
+            for (var i = 0; snapshot[i]; i++) {
+                console.log(snapshot.val());
+                // console.log(snapshot.val().name);
+                console.log(snapshot.val().email);
+                console.log(snapshot.val().start);
+                console.log(snapshot.val().rate);
 
+
+                $("#name-display").text(snapshot.val().name);
+                $("#role-display").text(snapshot.val().email);
+                $("#start-display").text(snapshot.val().start);
+                $("#rate-display").text(snapshot.val().rate);
+
+
+            }
+            // Create Error Handling
+        }, function(errorObject) {
+            console.log(errorObject.code);
+        });
 });
-
-database.ref()
-    .orderByChild("dateAdded")
-    .limitToLast(3)
-    .on("child_added", function(snapshot) {
-
-        for (var i = 0; snapshot[i]; i++) {
-            console.log(snapshot.val());
-            // console.log(snapshot.val().name);
-            console.log(snapshot.val().email);
-            console.log(snapshot.val().start);
-            console.log(snapshot.val().rate);
-
-
-            $("#name-display").text(snapshot.val().name);
-            $("#role-display").text(snapshot.val().email);
-            $("#start-display").text(snapshot.val().start);
-            $("#rate-display").text(snapshot.val().rate);
-
-
-        }
-        // Create Error Handling
-    }, function(errorObject) {
-        console.log(errorObject.code);
-    });
