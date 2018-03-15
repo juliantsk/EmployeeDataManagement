@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 //  START CODING BELOW!!
 var name = "";
-var email = "";
+var role = "";
 var start = 0;
 var rate = "";
 
@@ -24,19 +24,19 @@ $(document).ready(function() {
         event.preventDefault();
 
         name = $("#name-input").val().trim();
-        email = $("#role-input").val().trim();
+        role = $("#role-input").val().trim();
         start = $("#start-input").val().trim();
         rate = $("#rate-input").val().trim();
 
         console.log("success");
-
-        database.ref().push({
-            name: name,
-            email: email,
-            start: start,
-            rate: rate
-        });
-
+        if (name !== "" && role !== "" && start !== "" && rate !== "") {
+            database.ref().push({
+                name: name,
+                role: role,
+                start: start,
+                rate: rate
+            });
+        }
     });
 
     database.ref()
@@ -47,13 +47,13 @@ $(document).ready(function() {
             for (var i = 0; snapshot[i]; i++) {
                 console.log(snapshot.val());
                 // console.log(snapshot.val().name);
-                console.log(snapshot.val().email);
+                console.log(snapshot.val().role);
                 console.log(snapshot.val().start);
                 console.log(snapshot.val().rate);
 
 
                 $("#name-display").text(snapshot.val().name);
-                $("#role-display").text(snapshot.val().email);
+                $("#role-display").text(snapshot.val().role);
                 $("#start-display").text(snapshot.val().start);
                 $("#rate-display").text(snapshot.val().rate);
 
