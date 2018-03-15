@@ -17,6 +17,23 @@ h1 {
  background-color: darkblue !important;
  color: white !important;
 }
+#little-head{
+    background-color: darkblue !important;
+    color :white;
+}
+
+.panel-body{
+    border: 3px solid darkblue !important;
+}
+
+.col-lg-12{
+    margin-top: 25px;
+}
+
+
+#first-row{
+    border: 3px solid darkblue !important;
+}
 
 table {
     border: 1px solid lightgrey;
