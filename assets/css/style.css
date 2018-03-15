@@ -19,11 +19,11 @@ h1 {
 }
 
 table {
-    border: 1px solid gray;
+    border: 1px solid lightgrey;
     border-radius: 2px; 
 }
 
-.table-title {
+.little-head{
     background-color: darkblue !important;
     color: white !important;
 }
