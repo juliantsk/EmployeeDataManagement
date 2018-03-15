@@ -40,7 +40,7 @@ $("#add-user").on("click", function() {
 
 });
 
-dataRef.ref()
+database.ref()
     .orderByChild("dateAdded")
     .limitToLast(3)
     .on("child_added", function(snapshot) {
