@@ -28,7 +28,7 @@ $(document).ready(function() {
         start = $("#start-input").val().trim();
         rate = $("#rate-input").val().trim();
 
-        console.log("success");
+        console.log(start);
         if (name !== "" && role !== "" && start !== "" && rate !== "") {
             database.ref().push({
                 name: name,
